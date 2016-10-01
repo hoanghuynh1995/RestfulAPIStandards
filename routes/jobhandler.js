@@ -21,5 +21,13 @@ var handler = {};
 handler.readBooks = function(){
     return bookList;
 }
+handler.writeBooks = function(book){
+    book.id = Date.now();
+    bookList.push(book);
+    var str = JSON.stringify(bookList,null,4)//pretty print json
+    fs.writeFile('./resources/danhsach.json',str,function(err){
+        if(err) console.log("Error writing new book: " + err);
+    });
+}
 
 module.exports = handler;

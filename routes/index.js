@@ -4,10 +4,9 @@ var jobHandler = require('./jobhandler');
 
 var fs = require("fs");
 var bodyParser = require('body-parser');
-var app = express();
 
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+router.use( bodyParser.json() );       // to support JSON-encoded bodies
+router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
 
@@ -35,5 +34,12 @@ router.get('/api/v1/books/:id',function(req,res){
   }
   res.status(404).send("Resource can't be found");
 });
-router.post('/api/v1/books')
+router.post('/api/v1/books',function(req,res){
+  console.log("Client post book " + req.query);
+  var newBook = req.body;
+  if(newBook.name == null || newBook.genre == null || newBook.author == null){
+    res.status(400).send("lack of info");
+  }
+  jobHandler.writeBooks(newBook);
+});
 module.exports = router;
