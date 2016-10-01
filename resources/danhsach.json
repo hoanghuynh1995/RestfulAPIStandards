@@ -1,0 +1,20 @@
+[
+  {
+    "id" : "1",
+    "title" : "Ngày Xưa Có Một Chuyện Tình",
+    "genre" : "Sách văn học trong nước",
+    "author" : "Nguyễn Nhật Ánh "
+  },
+  {
+    "id" : "2",
+    "title" : "Nghệ Thuật Đàm Phán",
+    "genre" : "Sách kinh tế",
+    "author" : "Donald J. Trump, Tony Schwartz "
+  },
+  {
+    "id" : "3",
+    "title" : "Ai Rồi Cũng Chết! (Tái Bản 2016)",
+    "genre" : "Sách chuyên ngành",
+    "author" : "Atul Gawande"
+  }
+]
