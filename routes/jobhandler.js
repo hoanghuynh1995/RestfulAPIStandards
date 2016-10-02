@@ -114,6 +114,8 @@ var limitField = function(arr,req){
             newArr.push(ele);
         }
         return newArr;
+    }else{
+        return arr;
     }
 };
 handler.writeBooks = function(book){
