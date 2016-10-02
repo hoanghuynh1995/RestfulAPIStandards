@@ -29,14 +29,75 @@ handler.readBooks = function(req){
     var offset = req.query.offset==null?defaultSize:req.query.offset;//number of items in a page
     res.paging.page = parseInt(page);
     res.paging.offset = parseInt(offset);
+    //check whether the requested resource existed
     if((page - 1) * offset >= bookList.length){
         res.data = [];
         res.paging.total = 0;
         return res;
     }
     res.data = bookList.slice((page-1)*offset,(page-1)*offset + offset);
+    //filter
+    filter(res.data,req);
     res.paging.total = res.data.length;
+
+    //sorting
+    var sort = req.query.sort;
+    if(sort != null){
+        if(sort.charAt(0) == '-'){ //-> in descending order
+            sort = sort.substring(1,sort.length);
+            res.data.sort(function(a,b){
+                if(a[sort] > b[sort]){
+                    return -1;
+                }
+                if(a[sort] < b[sort]){
+                    return 1;
+                }
+                return 0;
+            });
+        }else{
+            res.data.sort(function(a,b){
+                if(a[sort] > b[sort]){
+                    return 1;
+                }
+                if(a[sort] < b[sort]){
+                    return -1;
+                }
+                return 0;
+            });
+        }
+
+    }
     return res;
+};
+var filter = function(arr,req){
+    var filterParams = {};
+    filterParams.name = req.query.name;
+    filterParams.genre = req.query.genre;
+    filterParams.author = req.query.author;
+    if(filterParams.name != null){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].name != filterParams.name){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+    }
+    if(filterParams.genre != null){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].genre != filterParams.genre){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+    }
+    if(filterParams.author != null){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i].author != filterParams.author){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+    }
 };
 handler.writeBooks = function(book){
     book.id = Date.now();

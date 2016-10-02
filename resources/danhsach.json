@@ -1,44 +1,56 @@
 [
     {
         "id": 1,
-        "title": "Ngày Xưa Có Một Chuyện Tình",
+        "name": "Ngày Xưa Có Một Chuyện Tình",
         "genre": "Sách văn học trong nước",
         "author": "Nguyễn Nhật Ánh "
     },
     {
         "id": 2,
-        "title": "Nghệ Thuật Đàm Phán",
+        "name": "Nghệ Thuật Đàm Phán",
         "genre": "Sách kinh tế",
         "author": "Donald J. Trump, Tony Schwartz "
     },
     {
         "id": 3,
-        "title": "Ai Rồi Cũng Chết! (Tái Bản 2016)",
+        "name": "Ai Rồi Cũng Chết! (Tái Bản 2016)",
         "genre": "Sách chuyên ngành",
         "author": "Atul Gawande"
     },
     {
         "name": "Dạy Con Đôi Khi Thật Đơn Giản",
         "genre": "Sách thường thức - đời sống",
-        "author1": "Trần Bích Hà",
+        "author": "Trần Bích Hà",
         "id": 1475341197785
     },
     {
       "name": "Đắc nhân tâm",
       "genre": "Sách Phát Triển Bản Thân",
-      "author1": "Dale Carnegie",
+      "author": "Dale Carnegie",
       "id": 1475341197786
     },
     {
       "name": "Con Chó Nhỏ Mang Giỏ Hoa Hồng",
       "genre": "Tiểu thuyết",
-      "author1": "Nguyễn Nhật Ánh",
+      "author": "Nguyễn Nhật Ánh",
       "id": 1475341197787
     },
     {
       "name": "Ứng Dụng Vi Xử Lý Và Vi Điều Khiển",
       "genre": "Sách Tin Học - Ngoại Ngữ",
-      "author1": "Lê Ngọc Bích - Phạm Quang Huy",
+      "author": "Lê Ngọc Bích - Phạm Quang Huy",
       "id": 1475341197788
+    },
+    {
+      "name": "Nâng Cao Vốn Từ Vựng Tiếng Anh Qua Các Câu Chuyện - Trình Độ Nâng Cao",
+      "genre": "Sách Tin Học - Ngoại Ngữ",
+      "author": "Thiên Phúc",
+      "id": 1475341197789
+    },
+    {
+      "name": "Cô Gái Đan Mạch",
+      "genre": "Tiểu thuyết",
+      "author": "David Ebershoff",
+      "id": 1475341197790
     }
 ]
