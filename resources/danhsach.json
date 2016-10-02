@@ -18,9 +18,27 @@
         "author": "Atul Gawande"
     },
     {
-        "name": "abc",
-        "genre": "def",
-        "author1": "ghi",
+        "name": "Dạy Con Đôi Khi Thật Đơn Giản",
+        "genre": "Sách thường thức - đời sống",
+        "author1": "Trần Bích Hà",
         "id": 1475341197785
+    },
+    {
+      "name": "Đắc nhân tâm",
+      "genre": "Sách Phát Triển Bản Thân",
+      "author1": "Dale Carnegie",
+      "id": 1475341197786
+    },
+    {
+      "name": "Con Chó Nhỏ Mang Giỏ Hoa Hồng",
+      "genre": "Tiểu thuyết",
+      "author1": "Nguyễn Nhật Ánh",
+      "id": 1475341197787
+    },
+    {
+      "name": "Ứng Dụng Vi Xử Lý Và Vi Điều Khiển",
+      "genre": "Sách Tin Học - Ngoại Ngữ",
+      "author1": "Lê Ngọc Bích - Phạm Quang Huy",
+      "id": 1475341197788
     }
 ]

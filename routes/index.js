@@ -18,9 +18,24 @@ router.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 router.get('/api/v1/books.json', function(req, res) {
   console.log("Client requests book list");
-  var studentList = [];
-  var data = jobHandler.readBooks();
+  var data = jobHandler.readBooks(req);
   res.json(data);
+  // data.data=jobHandler.readBooks(req);
+  // data.paging={};
+  // data.paging.page = 1;
+  // data.paging.offset = 5;
+  //
+  // data.paging.total = data.data.length;
+  // if(data != null) {
+  //   data.paging={};
+  //   data.paging.page = 1;
+  //   data.paging.offset = 5;
+  //
+  //   data.paging.total = data.data.length;
+  //   res.json(data);
+  // }else {
+  //   res.status(404).send("No more books");
+  // }
 });
 router.get('/api/v1/books/:id',function(req,res){
   var id = req.params.id;
@@ -42,4 +57,5 @@ router.post('/api/v1/books',function(req,res){
   }
   jobHandler.writeBooks(newBook);
 });
+
 module.exports = router;
