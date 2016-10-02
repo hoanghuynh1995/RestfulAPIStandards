@@ -67,6 +67,9 @@ handler.readBooks = function(req){
         }
 
     }
+
+    //limit fields
+    res.data = limitField(res.data,req);
     return res;
 };
 var filter = function(arr,req){
@@ -74,29 +77,43 @@ var filter = function(arr,req){
     filterParams.name = req.query.name;
     filterParams.genre = req.query.genre;
     filterParams.author = req.query.author;
-    if(filterParams.name != null){
-        for(var i=0;i<arr.length;i++){
-            if(arr[i].name != filterParams.name){
-                arr.splice(i,1);
+    if(filterParams.name != null) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].name != filterParams.name) {
+                arr.splice(i, 1);
                 i--;
+            }
+        }
+        if (filterParams.genre != null) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].genre != filterParams.genre) {
+                    arr.splice(i, 1);
+                    i--;
+                }
+            }
+        }
+        if (filterParams.author != null) {
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].author != filterParams.author) {
+                    arr.splice(i, 1);
+                    i--;
+                }
             }
         }
     }
-    if(filterParams.genre != null){
+};
+var limitField = function(arr,req){
+    if(req.query.fields != null) {
+        var fields = req.query.fields.split(',');//field list
+        var newArr = [];
         for(var i=0;i<arr.length;i++){
-            if(arr[i].genre != filterParams.genre){
-                arr.splice(i,1);
-                i--;
+            var ele = {};
+            for(var j=0;j<fields.length;j++){
+                ele[fields[j]] = arr[i][fields[j]];
             }
+            newArr.push(ele);
         }
-    }
-    if(filterParams.author != null){
-        for(var i=0;i<arr.length;i++){
-            if(arr[i].author != filterParams.author){
-                arr.splice(i,1);
-                i--;
-            }
-        }
+        return newArr;
     }
 };
 handler.writeBooks = function(book){
