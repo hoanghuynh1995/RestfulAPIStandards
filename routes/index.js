@@ -50,12 +50,19 @@ router.get('/api/v1/books/:id',function(req,res){
   res.status(404).send("Resource can't be found");
 });
 router.post('/api/v1/books',function(req,res){
-  console.log("Client post book " + req.query);
+  console.log("Client posts book " + req.query);
   var newBook = req.body;
   if(newBook.name == null || newBook.genre == null || newBook.author == null){
     res.status(400).send("lack of info");
   }
   jobHandler.writeBooks(newBook);
+});
+router.delete('/api/v1/books/:id',function(req,res){
+  var bookId = req.params.id;
+  console.log("Client deletes book " + bookId);
+  if(!jobHandler.deleteBooks(bookId)) {
+    res.status(400).send("Book id doesn't exist");
+  }
 });
 
 module.exports = router;

@@ -124,6 +124,19 @@ handler.writeBooks = function(book){
         if(err) console.log("Error writing new book: " + err);
     });
 };
+handler.deleteBooks = function(id){
+    for(var i=0;i<bookList.length;i++){
+        if(bookList[i].id == id){
+            bookList.splice(i,1);
+            var str = JSON.stringify(bookList,null,4)//pretty print json
+            fs.writeFile('./resources/danhsach.json',str,function(err){
+                if(err) console.log("Error deleting book: " + err);
+            });
+            return true;//delete successful
+        }
+    }
+    return false;//delete fail
+};
 
 
 
